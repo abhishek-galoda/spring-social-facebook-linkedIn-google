@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title>Hello Facebook</title>
+	</head>
+	<body>
+		<h3>Hello, <span th:text="${linkedInProfile.firstName}"></span><span th:text="${linkedInProfile.lastName}"></span></h3>
+		
+		<h4><span th:text="${linkedInProfile.emailAddress}"></span></h4>
+		<h4><span th:text="${linkedInProfile.id}"></span></h4>
+		<h4><span th:text="${linkedInProfile.location.country}"></span></h4>
+		
+	</body>
+</html>

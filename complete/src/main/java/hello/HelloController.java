@@ -5,6 +5,7 @@ import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.PagedList;
 import org.springframework.social.facebook.api.Post;
+import org.springframework.social.facebook.api.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,13 +28,14 @@ public class HelloController {
         if (connectionRepository.findPrimaryConnection(Facebook.class) == null) {
             return "redirect:/connect/facebook";
         }
-        String [] fields = { "id", "email",  "first_name", "last_name" };
+        User user = facebook.userOperations().getUserProfile();
         System.out.println(facebook.isAuthorized());
-
-        model.addAttribute("facebookProfile", facebook.userOperations().getUserProfile());
+        System.out.println(": "+user.getFirstName() +" : "+ user.getLastName() +" : "+ user.getEmail());
+        model.addAttribute("facebookProfile", user);
         PagedList<Post> feed = facebook.feedOperations().getFeed();
         model.addAttribute("feed", feed);
         return "hello";
     }
 
+    
 }
