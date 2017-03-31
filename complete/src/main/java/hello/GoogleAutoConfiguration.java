@@ -16,8 +16,6 @@
 
 package hello;
 
-import java.lang.reflect.Type;
-
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -41,15 +39,12 @@ import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.connect.web.GenericConnectionStatusView;
 import org.springframework.social.google.api.Google;
 import org.springframework.social.google.connect.GoogleConnectionFactory;
-import org.springframework.social.google.api.Google;
-
-
 
 /**
- * {@link EnableAutoConfiguration Auto-configuration} for Spring Social connectivity with
- * Facebook.
+ * {@link EnableAutoConfiguration Auto-configuration} for Spring Social
+ * connectivity with Google.
  *
- * @author Craig Walls
+ * @author Abhishek Galoda
  * @since 1.1.0
  */
 @Configuration
@@ -62,7 +57,7 @@ public class GoogleAutoConfiguration {
 	@Configuration
 	@EnableSocial
 	@EnableConfigurationProperties(GoogleProperties.class)
-    @ConditionalOnWebApplication
+	@ConditionalOnWebApplication
 	protected static class GoogleConfigurerAdapter extends SocialAutoConfigurerAdapter {
 
 		private final GoogleProperties properties;
@@ -75,8 +70,7 @@ public class GoogleAutoConfiguration {
 		@ConditionalOnMissingBean(Google.class)
 		@Scope(value = "request", proxyMode = ScopedProxyMode.INTERFACES)
 		public Google google(ConnectionRepository repository) {
-			Connection<Google> connection = repository
-					.findPrimaryConnection(Google.class);
+			Connection<Google> connection = repository.findPrimaryConnection(Google.class);
 			return connection != null ? connection.getApi() : null;
 		}
 
@@ -88,8 +82,7 @@ public class GoogleAutoConfiguration {
 
 		@Override
 		protected ConnectionFactory<?> createConnectionFactory() {
-			return new GoogleConnectionFactory(this.properties.getAppId(),
-					this.properties.getAppSecret());
+			return new GoogleConnectionFactory(this.properties.getAppId(), this.properties.getAppSecret());
 		}
 
 	}

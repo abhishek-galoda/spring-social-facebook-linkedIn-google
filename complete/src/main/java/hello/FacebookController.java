@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
-public class HelloController {
+@RequestMapping("/facebook")
+public class FacebookController {
 
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
 
-    public HelloController(Facebook facebook, ConnectionRepository connectionRepository) {
+    public FacebookController(Facebook facebook, ConnectionRepository connectionRepository) {
         this.facebook = facebook;
         this.connectionRepository = connectionRepository;
     }
@@ -34,7 +34,7 @@ public class HelloController {
         model.addAttribute("facebookProfile", user);
         PagedList<Post> feed = facebook.feedOperations().getFeed();
         model.addAttribute("feed", feed);
-        return "hello";
+        return "facebook";
     }
 
     
