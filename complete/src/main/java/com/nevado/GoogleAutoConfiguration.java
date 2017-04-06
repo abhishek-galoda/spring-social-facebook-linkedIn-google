@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package hello;
+package com.nevado;
 
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;

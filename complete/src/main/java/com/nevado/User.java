@@ -1,4 +1,4 @@
-package hello;
+package com.nevado;
 
 public class User {
 

@@ -1,4 +1,4 @@
-package hello;
+package com.nevado;
 
 import org.springframework.boot.autoconfigure.social.SocialProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,4 +1,4 @@
-package hello;
+package com.nevado;
 
 
 import org.springframework.social.connect.ConnectionRepository;

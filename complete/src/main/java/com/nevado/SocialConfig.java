@@ -1,4 +1,4 @@
-package hello;
+package com.nevado;
 
 import java.util.UUID;
 
@@ -9,7 +9,8 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
 @Configuration
-public class SocialConfig extends SocialConfigurerAdapter {
+public class SocialConfig extends SocialConfigurerAdapter
+{
 
     @Override
     public UserIdSource getUserIdSource() {
